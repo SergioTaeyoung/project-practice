@@ -1,0 +1,1224 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<title>하이센스 3.0 관리자</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><!-- 문서모드고정 (문서모드7이되서 깨지는경우가있음) -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width">
+	<meta name="format-detection" content="telephone=no" /><!-- 자동으로 전화 링크되는것 방지 -->
+	<meta name="robots" content="noindex"><!-- 관리자 모드 네이버 검색 등록 차단 -->
+
+	<!-- 디자인css 순서지킬것 -->
+	<link href="//thy301.onedaynet.co.kr/totalAdmin/css/default_setting.css" rel="stylesheet" type="text/css" />
+	<link href="//thy301.onedaynet.co.kr/totalAdmin/css/totalAdmin.css" rel="stylesheet" type="text/css" />
+	<link href="//thy301.onedaynet.co.kr/totalAdmin/css/design.css" rel="stylesheet" type="text/css" />
+	<link href="//thy301.onedaynet.co.kr/totalAdmin/css/customize.css" rel="stylesheet" type="text/css" />
+	<link href="/include/js/jquery/jqueryui/jquery-ui.min.css" rel="stylesheet" type="text/css">
+	<link href="/include/js/tagEditor/jquery.tag-editor.css" rel="stylesheet" type="text/css">
+	<link href="/include/js/tagEditor/admin.css" rel="stylesheet" type="text/css">
+	<link href="//thy301.onedaynet.co.kr/totalAdmin/js/colorpicker/evol-colorpicker.min.css" rel="stylesheet" type="text/css">
+	<link href="//thy301.onedaynet.co.kr/totalAdmin/js/colorpicker/evol-colorpicker.custom.css" rel="stylesheet" type="text/css">
+	<link href="/include/js/air-datepicker/css/datepicker.min.css" rel="stylesheet" type="text/css">
+
+	<script src="/include/js/jquery-1.11.2.min.js"></script>
+	<script src="/include/js/jquery.placeholder.js"></script>
+	<script src="/include/js/jquery/jquery.lightbox_me.js"></script>
+	<script src="/include/js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="/include/js/jquery/jquery.validate.js"></script>
+	<script src="/include/js/jquery/jquery.easing.1.3.js"></script>
+	<script src="/include/js/jquery/jqueryui/jquery-ui.min.js"></script>
+	<script src="/include/js/tagEditor/jquery.tag-editor.js"></script>
+	<script src="/include/js/tagEditor/jquery.tag-editor.caret.min.js"></script>
+	<script src="/include/js/clipboard/clipboard.min.js"></script>
+	<script src="//thy301.onedaynet.co.kr/totalAdmin/js/colorpicker/evol-colorpicker.custom.js"></script>
+	<script src="/include/js/air-datepicker/js/datepicker.js"></script>
+	<script src="/include/js/air-datepicker/js/i18n/datepicker.ko.js"></script>
+	<script src="//thy301.onedaynet.co.kr/totalAdmin/js/common.js?v=1588581372"></script>
+
+	<!--  2017-07-12 ::: 네이버 스마트에디터2 추가 ::: SSJ { -->
+	<script type="text/javascript" src="/include/smarteditor2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/include/smarteditor2/smarteditor2.js" charset="utf-8"></script>
+	<!-- } 2017-07-12 ::: 네이버 스마트에디터2 추가 ::: SSJ -->
+
+
+</head>
+<body>
+    <div class="wrap"><!-- ●●●헤더(공통)-->
+        <div class="header">
+            <!-- 사이트명 / 관리자메인 -->
+            <div class="site_name">
+                <a href="//thy301.onedaynet.co.kr/totalAdmin" class="btn">
+                    <!-- 하이센스 <strong>3.0</strong> -->
+                    <img src="scslogo.png" alt="My Image" width="60" height="60">
+                    <!-- 서커스 로고-->
+                </a>
+            </div>
+            <!-- 오른쪽 상단 내홈페이지/로그아웃-->
+            <div class="right_btn">
+                <ul>							
+                    <li class="li"><a href="/" class="btn" target="_blank">내홈페이지</a></li>			
+                    <li class="li"><a href="logout.php" class="btn">로그아웃</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /●●●헤더(공통)-->
+        
+        
+        
+        <!-- ●●●네비(공통)-->
+        <div class="nav">
+            <div class="layout_fix">
+                <div class="nav_box">
+                    <ul>
+                        <!-- 활성화시 hit클래스 추가 -->
+                                            <li class=""><a href="" class="btn">환경설정</a></li>
+                                            <li class=""><a href="" class="btn">디자인</a></li>
+                                            <li class="hit"><a href="" class="btn">상품관리</a></li>
+                                            <li class=""><a href="" class="btn">회원관리</a></li>
+                                            <li class=""><a href="" class="btn">주문배송</a></li>
+                                            <li class=""><a href="" class="btn">통계</a></li>									
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- ●●●네비(공통)-->
+
+
+<!-- ●●●컨텐츠영역 / close_btn 클릭시 if_hide 클래스 추가 -->
+<div class="container js-menu-container">
+	<!-- 왼쪽메뉴 -->
+	<div class="aside">
+		<!-- 1차메뉴명 -->
+		<div class="title_box">상품</div>
+
+		<!-- 카테고리메뉴 -->
+		<div class="ctg_box">
+			<ul class="ul">
+							<!-- li반복 -->
+				<!-- 클릭시 if_open 클래스 추가 -->
+				<li class="li js-sub-menu-container if_open " data-amuid="76">
+					<!-- 2차카테고리 -->
+					<div class="depth2_box"><a href="#none" onclick="return false;" class="tt js-sub-menu-ctl" data-amuid="76">상품</a></div>
+										<!-- 3차카테고리 -->
+					<div class="depth3_box">
+						<ul>							
+							<li class=""><a href="" class="btn">카테고리 등록</a></li>
+													<!-- 활성화시 hit클래스 추가 -->
+							<li class=""><a href="" class="btn">상품 정보</a></li>
+                                                    <!-- 활성화시 hit클래스 추가 -->
+                            <li class="hit"><a href="" class="btn">상품 등록</a></li>
+													<!-- 활성화시 hit클래스 추가 -->	                                              							
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 왼쪽메뉴 -->
+
+	<!-- ●오른쪽컨텐츠 -->
+	<div class="section">
+
+		<!-- 하단 컨텐츠 -->
+
+
+
+<form name="frm" method="post" ENCTYPE="multipart/form-data" action="_product.pro.php" >
+<input type="hidden" name="_mode" value="add">
+<input type="hidden" name="_PVSC" value="">
+<input type="hidden" name="_code" value="P6736-J8065-L2702">
+<!-- <input type=hidden name="_cpid" value=""> -->
+
+	<!-- ● 단락타이틀 -->
+	<div class="group_title"><strong>상품노출 설정</strong></div>
+
+
+	<!-- ● 폼 영역 (검색/폼 공통으로 사용) -->
+	<div class="data_form">
+		<table class="table_form">
+			<colgroup>
+				<col width="180"><col width="*"><col width="180"><col width="*">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>상품 노출</th>
+					<td colspan="3">
+						<label class='design'><input type=radio id='_viewY' name='_view' value='Y'  >노출</label><label class='design'><input type=radio id='_viewN' name='_view' value='N'  checked >숨김</label>					</td>
+                    <th>상품 아이콘</th>
+                    <td colspan="3">
+                        <label class='design'><input type='checkbox' name='_icon[]' value='' ><img src='' title='best'>베스트</label>
+                        <label class='design'><input type='checkbox' name='_icon[]' value='' ><img src='' title='new'>신상품</label>
+                    </td>
+                    </tr>
+			
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+	<!-- ● 단락타이틀 -->
+	<div class="group_title"><strong>상품 카테고리 설정</strong></div>
+
+
+
+
+	<!-- ● 폼 영역 (검색/폼 공통으로 사용) -->
+	<div class="data_form">
+		<table class="table_form">
+			<colgroup>
+				<col width="180"><col width="*">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>상품 카테고리</th>
+					<td>
+						
+
+                        <span class="fr_tx">1차 분류</span>
+                        <select ><option value=''>-선택-</option><option>아우터</option><option>상의</option><option>하의</option><option>슈즈</option></select>
+                           <span class="fr_tx">2차 분류</span>
+                        <select ><option value=''>-선택-</option><option></option><option></option><option></option><option></option></select>
+                        <a href="#none" onclick="category_add();" class="c_btn h27 blue icon icon_plus">선택 카테고리 추가</a>
+	                </td>
+				</tr>
+				<tr>
+					<th>선택된 카테고리</th>
+					<td>
+
+
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+	<!-- ● 단락타이틀 -->
+	<div class="group_title"><strong>상품 기본 정보</strong></div>
+
+
+
+
+	<!-- ● 폼 영역 (검색/폼 공통으로 사용) -->
+	<div class="data_form">
+		<table class="table_form">
+			<colgroup>
+				<col width="180"><col width="*">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th class="ess">상품코드</th>
+					<td>
+						<input type="text" name="" class="design" value="" placeholder="" style="width:200px" readonly="readonly">
+					</td>
+				</tr>											
+				
+				<tr>
+					<th class="ess">상품명</th>
+					<td>
+                        <input type="text" name="" class="design" value="" placeholder="" style="width:200px" readonly="readonly">
+					</td>
+				</tr>
+				<tr>
+					<th class="ess">판매정보</th>
+					<td>
+                        <span class="fr_tx">공급가</span>
+						<input type="text" name="" class="design number_style" value="" placeholder="" style="width:100px">
+                        <span class="fr_tx">원</span>
+                        <div class="bar"></div>
+						<span class="fr_tx">정상가</span>
+						<input type="text" name="" class="design number_style" value="" placeholder="" style="width:100px">
+						<span class="fr_tx">원</span>
+                        <div class="bar"></div>
+                        <span class="fr_tx">할인율</span>
+						<input type="text" name="" class="design number_style" value="" placeholder="" style="width:100px">                        
+                        <div class="bar"></div>
+						<span class="fr_tx">판매가</span>
+						<input type="text" name="" class="design number_style" value="" placeholder="" style="width:100px">
+						<span class="fr_tx">원</span>
+                        <div class="bar"></div>
+                        <span class="fr_tx">재고량</span>
+						<input type="text" name="" class="design number_style" value="" placeholder="" style="width:100px">
+                       
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
+
+
+
+    <!--                    여기까지 만듦                  -->
+    <!--                    여기까지 만듦                  -->
+    <!--                    여기까지 만듦                  -->
+    <!--                    여기까지 만듦                  -->
+    <!--                    여기까지 만듦                  -->
+    <!--                    여기까지 만듦                  -->
+    <!--                    여기까지 만듦                  -->
+
+
+
+	<!-- ● 단락타이틀 -->
+	<div class="group_title"><strong>상품 부가정보 및 옵션 설정</strong></div>
+
+
+
+
+	<!-- ● 폼 영역 (검색/폼 공통으로 사용) -->
+	<div class="data_form">
+		<table class="table_form">
+			<colgroup>
+				<col width="180"><col width="*"><col width="180"><col width="*">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>재고량</th>
+					<td>
+						<input type="text" name="_stock" class="design number_style" value="" placeholder="" style="width:100px">
+					</td>
+					<th>상품순위</th>
+					<td>
+						<input type="text" name="_sort_group" class="design number_style" value="100" placeholder="" style="width:50px">
+						<input type="hidden" name="_sort_idx" class="design" value="0.5" >
+						<input type="hidden" name="_idx" class="design" value="0.5" >
+					</td>
+				</tr>
+				<tr>
+					<th>판매량</th>
+					<td>
+						<input type="text" name="_salecnt" class="design number_style" value="" placeholder="" style="width:100px">
+					</td>
+					<th>적립율</th>
+					<td>
+						<input type="text" name="_point_per" class="design number_style" value="" placeholder="" style="width:50px">
+						<span class="fr_tx">%</span>
+						<div class='c_tip '>상품구매 시 상품가격 당 %로 적용됩니다. 예) 1%적용 시 10,000원 구매하여 결제하면 적립금 100포인트가 적립됩니다.</div>					</td>
+				</tr>
+				<tr>
+					<th>제조사</th>
+					<td>
+						<input type="text" name="_maker" class="design" value="" placeholder="" style="">
+					</td>
+					<th>원산지</th>
+					<td>
+						<input type="text" name="_orgin" class="design" value="" placeholder="" style="">
+					</td>
+				</tr>
+
+
+				<tr>
+					<th>옵션설정</th>
+					<td colspan="3">
+
+						<div style="clear:both;">
+							<label class='design'><input type=radio id='_option_type_chknooption' name='_option_type_chk' value='nooption'  class='_option_type_chk'  checked >옵션사용안함</label><label class='design'><input type=radio id='_option_type_chk1depth' name='_option_type_chk' value='1depth'  class='_option_type_chk'  >1차옵션</label><label class='design'><input type=radio id='_option_type_chk2depth' name='_option_type_chk' value='2depth'  class='_option_type_chk'  >2차옵션</label><label class='design'><input type=radio id='_option_type_chk3depth' name='_option_type_chk' value='3depth'  class='_option_type_chk'  >3차옵션</label>						</div>
+
+						<div class="option_type" style="clear:both; display:none;">
+							<div class="dash_line"><!-- 점선라인 --></div>
+							<dl class="init_depth1_type init_depth_type">
+								<dt>1차 옵션유형</dt>
+								<dd>
+									<div class="lineup-center">
+										<label class='design'><input type=radio id='p_option1_typenormal' name='p_option1_type' value='normal'  class="btn_hide_input "  checked >일반</label><label class='design'><input type=radio id='p_option1_typecolor' name='p_option1_type' value='color'  class="btn_hide_input "  >컬러</label><label class='design'><input type=radio id='p_option1_typesize' name='p_option1_type' value='size'  class="btn_hide_input "  >사이즈</label>									</div>
+								</dd>
+							</dl>
+
+							<dl class="init_depth2_type init_depth_type">
+								<dt>2차 옵션유형</dt>
+								<dd>
+									<div class="lineup-center">
+										<label class='design'><input type=radio id='p_option2_typenormal' name='p_option2_type' value='normal'  class="btn_hide_input "  checked >일반</label><label class='design'><input type=radio id='p_option2_typecolor' name='p_option2_type' value='color'  class="btn_hide_input "  >컬러</label><label class='design'><input type=radio id='p_option2_typesize' name='p_option2_type' value='size'  class="btn_hide_input "  >사이즈</label>									</div>
+								</dd>
+							</dl>
+
+							<dl class="init_depth3_type init_depth_type">
+								<dt>3차 옵션유형</dt>
+								<dd>
+									<div class="lineup-center">
+										<label class='design'><input type=radio id='p_option3_typenormal' name='p_option3_type' value='normal'  class="btn_hide_input "  checked >일반</label><label class='design'><input type=radio id='p_option3_typecolor' name='p_option3_type' value='color'  class="btn_hide_input "  >컬러</label><label class='design'><input type=radio id='p_option3_typesize' name='p_option3_type' value='size'  class="btn_hide_input "  >사이즈</label>									</div>
+								</dd>
+							</dl>
+
+							<div class="dash_line"><!-- 점선라인 --></div>
+							<div class="tip_box">
+								<div class="c_tip">옵션유형을 변경하시면 기존에 등록하셨던 옵션의 형태가 변경되므로 주의해주시기 바랍니다.</div>
+							</div>
+
+						</div>
+
+					</td>
+				</tr>
+
+				<tr>
+					<th>상품옵션</th>
+					<td>
+						<a href="#none" onclick="option_popup('P6736-J8065-L2702'); return false;" class="c_btn h27 black">옵션창 열기</a>
+						<a href="#none" onclick="common_option_popup('P6736-J8065-L2702'); return false;" class="c_btn h27">자주쓰는 옵션</a>
+						<div class='c_tip '>주문 내역이 있는 상품의 옵션은 변경하지 마시기 바랍니다.</div>					</td>
+					<th>추가옵션</th>
+					<td>
+						<a href="#none" onclick="addoption_popup('P6736-J8065-L2702');" class="c_btn h27 black">추가 옵션창 열기</a>
+						<div class='c_tip '>주문 내역이 있는 상품의 옵션은 변경하지 마시기 바랍니다.</div>					</td>
+				</tr>
+				<tr>
+					<th>정보제공고시</th>
+					<td colspan="3">
+						<a href="#none" onclick="reqinfo_popup();" class="c_btn h27 black">정보제공고시 관리창 열기</a>
+						<div class='c_tip '>상품에 필요한 정보제공고시의 항목과 내용으로 등록하며, 등록된 내용은 상품 상세페이지에 노출됩니다.</div>					</td>
+				</tr>
+
+				<!-- 연관상품 -->
+				<tr>
+	<th>관련 상품 설정</th>
+	<td colspan="3">
+		<label class='design'><input type=radio id='_relation_typenone' name='_relation_type' value='none'  checked >사용안함</label><label class='design'><input type=radio id='_relation_typecategory' name='_relation_type' value='category'  >자동지정 (동일 카테고리 상품 랜덤 노출)</label><label class='design'><input type=radio id='_relation_typemanual' name='_relation_type' value='manual'  >수동지정 (직접 선택한 상품 노출)</label>		<!-- 수동일경우에 노출 -->
+		<a href="#none" onclick="relationWin();return false;" class="c_btn h27 black js_relation_hide" style="display:none;">관련상품 등록/수정</a>
+		<span class="fr_tx t_orange js_relation_hide" style="display:none;">(현재 선택된 관련상품 총 <span class="js_relation_cnt">0</span>개)</span>
+		<div class="dash_line"><!-- 점선라인 --></div>							
+		<!-- 관련상품 노출용 데이터 --><textarea name="" rows="3" cols="" class="js_relation_view design disabled" readonly="" onclick="relationHelp(); return false;"></textarea>
+		<!-- 관련상품 실 데이터 --><input type="hidden" name="_relation" value="">
+	</td>
+</tr>
+<script>
+	//관련상품삭제
+	function delField(objTemp) {
+		objTemp.value='';
+	}
+
+	//관련상품수정/입력
+	function relationWin() {
+		setCookie('relation_prop_code_', $('input[name=_relation]').val());
+		window.open('_product.relation.pop.php?relation_code=','relation', 'width=1120, height=800, scrollbars=yes');
+	}
+
+	//관련상품 안내문구
+	function relationHelp() {
+		if(!$('.js_relation_view').hasClass('disabled')){
+			alert('위 "관련상품 등록/수정"버튼을 이용하여 입력해 주시기 바랍니다.   ');
+		}
+	}
+
+	// 관련상품 노출 설정시 
+	//$(document).ready(controller_realtion_display);
+	$(document).on('click', 'input[name=_relation_type]', controller_realtion_display);
+	function controller_realtion_display(){
+		var selected = $('input[name=_relation_type]:checked').val();
+		if(selected == 'manual'){
+			$('.js_relation_hide').show();
+			$('.js_relation_view').removeClass('disabled')
+		}
+		else{
+			$('.js_relation_hide').hide();
+			$('.js_relation_view').addClass('disabled')
+		}
+	}
+
+	// 관련상품 변경시 관련상품 개수 갱싱
+	//$(document).ready(sync_relation_cnt);
+	$(document).on('change', 'input[name=_relation]', sync_relation_cnt);
+	function sync_relation_cnt(){
+		var value = $('input[name=_relation]').val();
+		var cnt = 0;
+		if(value != '') cnt = value.split('|').length;
+		$('.js_relation_cnt').text(cnt.toString().comma());
+	}
+</script>				<!-- 연관상품 -->
+
+				<!-- 해시태그 -->
+				<tr>
+	<th>해시태그 설정</th>
+	<td colspan="3">
+		<span class="fr_tx">해시태그 자동완성 검색</span>
+		<input type="text" name="_hashtag_search" id="_hashtag_search" class="design" placeholder="" value="" style="width:150px">
+		<a href="#none" onclick="addField(document.frm._hashtag);" class="c_btn h27 icon icon_plus_b">추가하기</a>
+		<div class="dash_line"><!-- 점선라인 --></div>
+		<textarea name="_hashtag" rows="2" cols="" class="design"></textarea>
+		<label class="design"><input type="checkbox" name="_hashtag_shuffle" value="Y" >무작위 순서로 노출합니다.</label>
+		<div class="tip_box">
+			<div class='c_tip '>다른 상품에 등록된 해시태그를 1글자 이상 입력하시면 자동 완성된 해시태그를 선택할 수 있습니다.</div>			<div class='c_tip '>해시태그를 콤마(,)로 구분하여 직접 입력 후 추가할 수 있습니다.</div>		</div>
+	</td>
+</tr>
+<script>
+		$(document).ready(function(){
+		$('input[name=_hashtag_search]').on('keypress',function(e){ if ( e.which == 13 ) e.preventDefault(); });
+		var availableTags = [{ value:'사무용의자', label:'사무용의자' },{ value:'서재의자', label:'서재의자' },{ value:'3인용소파', label:'3인용소파' },{ value:'가죽소파', label:'가죽소파' },{ value:'리클라이너', label:'리클라이너' },{ value:'원목', label:'원목' },{ value:'도마', label:'도마' },{ value:'소파', label:'소파' }];
+		$( '#_hashtag_search' ).autocomplete({
+			source: availableTags,
+			focus: function( event, ui ) { $( '[name=_hashtag_search]' ).val( ui.item.value ); return false; },
+			select: function( event, ui ) { $( '[name=_hashtag]' ).val( ui.item.value + ',' + $('[name=_hashtag]').val() ); $( '#_hashtag_search' ).val(''); return false; }
+		});
+	});
+	//관련상품삭제
+	function delField(objTemp) {
+		objTemp.value='';
+	}
+	// 추가하기
+	function addField() {
+		if($( '#_hashtag_search' ).val().trim() !='' ) {
+			$( '[name=_hashtag]' ).val( $( '#_hashtag_search' ).val() + ($('[name=_hashtag]').val() != '' ? ',' + $('[name=_hashtag]').val() : '') );
+			$( '#_hashtag_search' ).val(''); 
+		}
+		return false;
+	}
+</script>				<!-- 해시태그 끝 -->
+
+			</tbody>
+		</table>
+	</div>
+
+
+
+	<!-- ● 단락타이틀 -->
+	<div class="group_title"><strong>배송정보 설정</strong></div>
+
+
+
+
+
+	<!-- ● 폼 영역 (검색/폼 공통으로 사용) -->
+	<div class="data_form">
+		<table class="table_form">
+			<colgroup>
+				<col width="180"><col width="*">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>배송정보</th>
+					<td>
+						<input type="text" name="_delivery_info" class="design" placeholder="" value="" style="">
+						<div class="c_tip">예 : 로젠택배 (2~3일 소요) </div>
+					</td>
+				</tr>
+				<tr>
+					<th>배송비 설정</th>
+					<td>
+						<label class="design"><input type="radio" name="_shoppingPay_use" class="_shoppingPay_use" value="N"  checked >쇼핑몰 배송비 정책 적용</label>
+						
+												<label class="design"><input type="radio" name="_shoppingPay_use" class="_shoppingPay_use" value="P" >상품별 배송비</label>
+												<label class="design"><input type="radio" name="_shoppingPay_use" class="_shoppingPay_use" value="Y" >개별 배송비 적용</label>
+						<!-- 개별배송비 일때 -->
+						<input type="text" name="_shoppingPay" class="design number_style" id="_shoppingPay_use_Y" placeholder="" value="" style="width:100px"  disabled >
+						<span class="fr_tx">원</span>
+						<label class="design"><input type="radio" name="_shoppingPay_use" class="_shoppingPay_use" value="F" >무료 배송 적용</label>
+						<!-- 무료배송비 일때 -->
+												<div class='c_tip '>무료 배송 적용 시 <em>무료배송 아이콘</em> <span class="preview_icon"><img src="images/log_guide.gif" alt=""><span class="ov"><img src="http://thy301.onedaynet.co.kr/upfiles/icon/2252681927.gif" alt="무료배송"></span></span>이 자동으로 붙습니다.</div>						<!-- 쇼핑몰 배송비 정책 적용일때 -->
+						<div>
+							<div class="dash_line"><!-- 점선라인 --></div>
+							<a href="#none" onclick="entershop_view(); return false;" class="c_btn h27 black">쇼핑몰 배송비 정책 확인</a>
+							<div class="c_tip">장바구니에 담긴 전체금액을 기준으로 무료배송비가 적용됩니다.</div>
+						</div>
+
+												<div class="shoppingPayP">
+							<div class="dash_line"><!-- 점선라인 --></div>
+							<span class="fr_tx">상품별 기본배송비</span>
+							<input type="text" name="_shoppingPayPdPrice" class="design number_style" placeholder="" value="" style="width:100px"  disabled >
+							<span class="fr_tx">원. 무료배송비</span>
+							<input type="text" name="_shoppingPayPfPrice" class="design number_style" placeholder="" value="" style="width:100px"  disabled >
+							<span class="fr_tx">원</span>
+							<div class="c_tip">장바구니에 담긴 상품당 금액을 기준으로 무료배송비가 적용됩니다.</div>
+						</div>
+											</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+	<!-- ● 단락타이틀 -->
+	<div class="group_title"><strong>상품 상세 설명</strong></div>
+
+	<!-- ● 폼 영역 (검색/폼 공통으로 사용) -->
+	<div class="data_form">
+
+		<!-- ● 내부탭 -->
+		<div class="c_tab">
+			<ul>
+				<li class="hit"><a href="#none" class="btn tab_menu" data-idx="pc" data-trigger="N"><strong>상품상세설명(PC)</strong></a></li>
+				<li><a href="#none" class="btn tab_menu" data-idx="mobile" data-trigger="Y"><strong>상품상세설명(MOBILE)</strong></a></li>
+			</ul>
+			<label class="design"><input type="checkbox" name="_use_content" value="Y" >PC/MOBILE 상세설명 함께 사용</label>
+		</div>
+
+		<table class="table_form">
+			<tbody>
+				<tr>
+					<td>
+						<div class="tab_conts" data-idx="pc">
+							<textarea name="_content" class="input_text SEditor" style="width:100%;height:300px;"></textarea>
+						</div>
+						<div class="tab_conts" data-idx="mobile" style="display:none">
+							<textarea name="_content_m" class="input_text SEditor" style="width:100%;height:300px;"></textarea>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+	<!-- 이용안내 -->
+	
+<!-- ● 단락타이틀 -->
+<div class="group_title"><strong>이용안내</strong></div>
+
+<!-- ● 폼 영역 (검색/폼 공통으로 사용) -->
+<div class="data_form">
+
+	<!-- ● 내부탭 -->
+	<div class="c_tab tab_guide">
+		<ul>
+							<li class="hit"><a href="#none" class="btn tab_menu" data-idx="10"><strong>구매/배송안내</strong></a></li>
+				<input type="hidden" name="guide_tabidx_save" value="10">							<li class=""><a href="#none" class="btn tab_menu" data-idx="20"><strong>교환/반품/환불이 가능한 경우</strong></a></li>
+											<li class=""><a href="#none" class="btn tab_menu" data-idx="30"><strong>교환/반품/환불이 불가능한 경우</strong></a></li>
+									</ul>
+	</div>
+
+	
+
+	<table class="table_form">	
+		<tbody>
+			<tr>
+				<td>
+					<div id="ajax_guide_info_area">
+							<div class="tab_conts" data-idx="10" style="">
+		<!-- 사용여부/입력방식 선택 -->
+		<label class='design'><input type=radio id='p_guide_type_10none' name='p_guide_type_10' value='none'  class="js_chg_guide_type" data-idx="10"  >사용안함</label><label class='design'><input type=radio id='p_guide_type_10manual' name='p_guide_type_10' value='manual'  class="js_chg_guide_type" data-idx="10"  >직접입력</label><label class='design'><input type=radio id='p_guide_type_10list' name='p_guide_type_10' value='list'  class="js_chg_guide_type" data-idx="10"  checked >선택입력</label>		<input type="hidden" name="p_guide_type_10_save" value="list">
+
+		<!-- 선택입력 항목, 선택입력 선택 시 노출 -->
+		<select name='p_guide_uid_10'  onchange="set_guide_info('10');" style="" ><option value=''>-선택-</option><option value='9' >배송 구매/배송안내 - 일부상품</option><option value='8' selected>배송 구매/배송안내 - 기본</option></select>
+		<!-- 선택입력항목 상세내용 저장, 비노출 -->
+					<textarea name="" id="guide_content_9" style="display:none;" readonly><ul><li>배송지역 : 전국<br></li><li>배송비: 10,000원 이상(할인 등이 적용된 최종 결제 금액 기준) 배송비 무료,<br></li><li>그 외 2,500원 (도서, 산간, 오지 일부지역, 설치배송상품 등은 배송비가 추가될 수 있습니다.)<br></li><li>이니스프리는 CJ 택배를 이용합니다. 군부대의 경우 주문 단계에서 군부대 배송을 체크하여 주시면, 우체국 택배로 발송됩니다.&nbsp;<br></li><li>단, 택배 송장 번호 확인시 CJ 택배 송장이 표기되며, 우체국 송장 번호는 고객 상담실로 전화 주시면 확인 가능합니다.<br></li><li>배송예정일 : 평일 오전 9시 이전 주문 건은 당일 출고되며, 그 후 주문 건은 다음 날 출고됩니다. 보통 주문일로부터 평일 기준 2~3일 소요되며,<br></li><li>주말/공휴일이 포함되거나 할인 행사로 인한 주문 폭주 및 택배사의 사정 등으로 인한 경우 배송이 지연될 수 있습니다.<br></li><li>상품 불량 및 오배송 등으로 인한 교환/반품신청의 경우 배송비는 무료 입니다.<br></li><li>고객님의 단순 변심으로 인한 교환/반품 신청은 고객님께서 왕복배송비 5,000원을 부담해 주셔야 처리가 됩니다.<br></li><li>제일은행 325-20-460048 (주)이니스프리<br></li><li>주의사항: 한정된 수량으로 더 많은 고객님들께 혜택을 드리기 위하여, 동일 주소지 대량 주문 시&nbsp;<br></li><li>1인 고객으로 집계하여 해당 아이디에 대한 주문이 제한될 수 있습니다.<br></li></ul></textarea>
+					<textarea name="" id="guide_content_8" style="display:none;" readonly><p>1.배송지역 : 전국</p><p>2.배송비: 10,000원 이상(할인 등이 적용된 최종 결제 금액 기준) 배송비 무료,</p><p>그 외 2,500원 (도서, 산간, 오지 일부지역, 설치배송상품 등은 배송비가 추가될 수 있습니다.)</p><p>3.이니스프리는 CJ 택배를 이용합니다. 군부대의 경우 주문 단계에서 군부대 배송을 체크하여 주시면, 우체국 택배로 발송됩니다.&nbsp;</p><p>단, 택배 송장 번호 확인시 CJ 택배 송장이 표기되며, 우체국 송장 번호는 고객 상담실로 전화 주시면 확인 가능합니다.</p><p>4.배송예정일 : 평일 오전 9시 이전 주문 건은 당일 출고되며, 그 후 주문 건은 다음 날 출고됩니다. 보통 주문일로부터 평일 기준 2~3일 소요되며,</p><p>주말/공휴일이 포함되거나 할인 행사로 인한 주문 폭주 및 택배사의 사정 등으로 인한 경우 배송이 지연될 수 있습니다.</p><p>5.상품 불량 및 오배송 등으로 인한 교환/반품신청의 경우 배송비는 무료 입니다.</p><p>6.고객님의 단순 변심으로 인한 교환/반품 신청은 고객님께서 왕복배송비 5,000원을 부담해 주셔야 처리가 됩니다.</p><p>제일은행 325-20-460048 (주)이니스프리</p><p>7.주의사항: 한정된 수량으로 더 많은 고객님들께 혜택을 드리기 위하여, 동일 주소지 대량 주문 시&nbsp;</p><p>1인 고객으로 집계하여 해당 아이디에 대한 주문이 제한될 수 있습니다.</p></textarea>
+		
+		<!-- 직접입력항목 상세내용 저장, 비노출 -->
+		<textarea name="p_guide_10" class="design" style="display:none;"></textarea>
+
+	</div>
+	<div class="tab_conts" data-idx="20" style="display:none;">
+		<!-- 사용여부/입력방식 선택 -->
+		<label class='design'><input type=radio id='p_guide_type_20none' name='p_guide_type_20' value='none'  class="js_chg_guide_type" data-idx="20"  >사용안함</label><label class='design'><input type=radio id='p_guide_type_20manual' name='p_guide_type_20' value='manual'  class="js_chg_guide_type" data-idx="20"  >직접입력</label><label class='design'><input type=radio id='p_guide_type_20list' name='p_guide_type_20' value='list'  class="js_chg_guide_type" data-idx="20"  checked >선택입력</label>		<input type="hidden" name="p_guide_type_20_save" value="list">
+
+		<!-- 선택입력 항목, 선택입력 선택 시 노출 -->
+		<select name='p_guide_uid_20'  onchange="set_guide_info('20');" style="" ><option value=''>-선택-</option><option value='7' selected>교환/반품/환불이 가능한 경우 - 기본</option></select>
+		<!-- 선택입력항목 상세내용 저장, 비노출 -->
+					<textarea name="" id="guide_content_7" style="display:none;" readonly><p>반품 시 주문내역에서 반품신청접수를 해주시고, 반품상품 발송시 사유를 간단하게 메모로 상품과 동봉해 주십시오.</p><p>업체 지정 택배사 이외의 택배사를 이용 시 반품 배송비가 기본 배송비와 차이가 있을 수 있습니다.</p><p>모니터상의 색상차이나 착용감의 개인차이는 불량반품 사유가 아닙니다.</p><p>상품하자 이외 사이즈, 색상교환 등 단순 변심에 의한 교환/반품 배송비는 고객부담입니다.&nbsp;</p><p>(컬러나 사이즈 교환의 경우 왕복 요금 고객부담)</p><p>고객님의 단순 변심으로 인한 교환, 반품은 미사용 제품에 한하여 상품을 수령하신 날로부터 7일 이내 접수하셔야 합니다.</p><p>택배이용 반품: 교환, 반품이 접수되면 당사 지정 택배사에서 상품 회수를 위해 고객님께 방문하오니 기다려주시기 바랍니다.&nbsp;</p><p>또는 협력업체와 계약한 배송사를 통해서 반품하여 주십시오.</p></textarea>
+		
+		<!-- 직접입력항목 상세내용 저장, 비노출 -->
+		<textarea name="p_guide_20" class="design" style="display:none;"></textarea>
+
+	</div>
+	<div class="tab_conts" data-idx="30" style="display:none;">
+		<!-- 사용여부/입력방식 선택 -->
+		<label class='design'><input type=radio id='p_guide_type_30none' name='p_guide_type_30' value='none'  class="js_chg_guide_type" data-idx="30"  >사용안함</label><label class='design'><input type=radio id='p_guide_type_30manual' name='p_guide_type_30' value='manual'  class="js_chg_guide_type" data-idx="30"  >직접입력</label><label class='design'><input type=radio id='p_guide_type_30list' name='p_guide_type_30' value='list'  class="js_chg_guide_type" data-idx="30"  checked >선택입력</label>		<input type="hidden" name="p_guide_type_30_save" value="list">
+
+		<!-- 선택입력 항목, 선택입력 선택 시 노출 -->
+		<select name='p_guide_uid_30'  onchange="set_guide_info('30');" style="" ><option value=''>-선택-</option><option value='6' selected>교환/반품/환불이 불가능한 경우 - 기본</option></select>
+		<!-- 선택입력항목 상세내용 저장, 비노출 -->
+					<textarea name="" id="guide_content_6" style="display:none;" readonly>반품요청기간이 지난 경우<br>구매자의 책임 있는 사유로 상품 등이 멸실 또는 훼손된 경우 (단, 상품의 내용을 확인하기 위하여 포장 등을 훼손한 경우는 제외)<br>포장을 개봉하였으나 포장이 훼손되어 상품가치가 현저히 상실된 경우 (예: 식품, 화장품, 향수류, 음반 등)<br>구매자의 사용 또는 일부 소비에 의하여 상품의 가치가 현저히 감소한 경우 (라벨이 떨어진 의류 또는 태그가 떨어진 명품관 상품인 경우)<br>시간의 경과에 의하여 재판매가 곤란할 정도로 상품 등의 가치가 현저히 감소한 경우<br></textarea>
+		
+		<!-- 직접입력항목 상세내용 저장, 비노출 -->
+		<textarea name="p_guide_30" class="design" style="display:none;"></textarea>
+
+	</div>
+					</div>
+					<div class="dash_line"><!-- 점선라인 --></div>
+					<div style="position:relative;overflow:hidden;">
+													<div class="guide_layout" style="position: absolute;width: 100%;height: 100%;background: rgba(239, 239, 239, 0.38); bottom:17px;"></div>
+												<textarea name="" class="design SEditor guide_viewer" style="width:100%;height:300px;"><p>1.배송지역 : 전국</p><p>2.배송비: 10,000원 이상(할인 등이 적용된 최종 결제 금액 기준) 배송비 무료,</p><p>그 외 2,500원 (도서, 산간, 오지 일부지역, 설치배송상품 등은 배송비가 추가될 수 있습니다.)</p><p>3.이니스프리는 CJ 택배를 이용합니다. 군부대의 경우 주문 단계에서 군부대 배송을 체크하여 주시면, 우체국 택배로 발송됩니다.&nbsp;</p><p>단, 택배 송장 번호 확인시 CJ 택배 송장이 표기되며, 우체국 송장 번호는 고객 상담실로 전화 주시면 확인 가능합니다.</p><p>4.배송예정일 : 평일 오전 9시 이전 주문 건은 당일 출고되며, 그 후 주문 건은 다음 날 출고됩니다. 보통 주문일로부터 평일 기준 2~3일 소요되며,</p><p>주말/공휴일이 포함되거나 할인 행사로 인한 주문 폭주 및 택배사의 사정 등으로 인한 경우 배송이 지연될 수 있습니다.</p><p>5.상품 불량 및 오배송 등으로 인한 교환/반품신청의 경우 배송비는 무료 입니다.</p><p>6.고객님의 단순 변심으로 인한 교환/반품 신청은 고객님께서 왕복배송비 5,000원을 부담해 주셔야 처리가 됩니다.</p><p>제일은행 325-20-460048 (주)이니스프리</p><p>7.주의사항: 한정된 수량으로 더 많은 고객님들께 혜택을 드리기 위하여, 동일 주소지 대량 주문 시&nbsp;</p><p>1인 고객으로 집계하여 해당 아이디에 대한 주문이 제한될 수 있습니다.</p></textarea>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script>
+		// 입점업체 변경시
+		$(document).on('change', '[name=_cpid]', function(){
+			var cpid = $(this).val();
+			$.ajax({
+				url:'/totalAdmin/_product.inc_guide.ajax.php',
+				data:'_code=P6736-J8065-L2702&_cpid=' + cpid,
+				type:'get',
+				dataType:'html',
+				success:function(data){
+					$('#ajax_guide_info_area').html(data);
+					$('.tab_guide').find('li.hit').find('.tab_menu').trigger('click');
+				}
+			});
+		});
+		// 이용내역 적용타입 선택
+		$(document).on('change', '.js_chg_guide_type', function(){
+			var idx = $(this).data('idx');
+
+			// 변경전 값 저장
+			var sv = $('input[name=p_guide_type_'+idx+'_save]').val();
+			$('input[name=p_guide_type_'+idx+'_save]').val($(this).val());
+
+			var type = $('input[name=p_guide_type_'+ idx +']:checked').val();
+			$('select[name=p_guide_uid_'+ idx +']').hide();
+
+			// 변경전 값이 직접입력이라면 직접입력 값 저장
+			if(sv=='manual' && type!=sv){
+				// 불러온내용 에디터에 적용
+				var id = $('.guide_viewer').attr('id');
+				var _bak = '';
+				if(oEditors.length > 0){
+					_bak = oEditors.getById[id].getContents();
+				}
+
+				$('[name=p_guide_'+ idx +']').val(_bak);
+			}
+
+			if(type=='none'){
+				 
+				// 사용안함/글쓰기방지 레이아웃 노출
+				$('.guide_layout').css({'background-color':'rgba(98, 98, 98, 0.38)'}).show();
+
+				// 저장된 내용 불러오기
+				var _text = $('[name=p_guide_'+ idx +']').val()
+				// 불러온내용 에디터에 적용
+				var id = $('.guide_viewer').attr('id');
+				if(oEditors.length > 0){
+					oEditors.getById[id].exec("SET_IR", [_text]);
+				}
+
+			}else if(type=='manual'){
+
+				// 사용안함/글쓰기방지 레이아웃 노출
+				$('.guide_layout').hide();
+
+				// 저장된 내용 불러오기
+				var _text = $('[name=p_guide_'+ idx +']').val()
+				// 불러온내용 에디터에 적용
+				var id = $('.guide_viewer').attr('id');
+				if(oEditors.length > 0){
+					oEditors.getById[id].exec("SET_IR", [_text]);
+				}
+
+			}else if(type=='list'){
+
+				// 사용안함/글쓰기방지 레이아웃 노출
+				$('.guide_layout').css({'background-color':'rgba(239, 239, 239, 0.38)'}).show();
+
+				$('select[name=p_guide_uid_'+ idx +']').show();
+				set_guide_info(idx);
+
+			}
+		});
+
+		$(document).on('click', '.tab_menu', function(){
+
+			var idx = $(this).data('idx');
+
+			// 변경전 값 저장
+			var sv = $('input[name=guide_tabidx_save]').val();
+			$('input[name=guide_tabidx_save]').val(idx);
+
+			var type = $('input[name=p_guide_type_'+ sv +']:checked').val();
+
+			// 변경전 값이 직접입력이라면 직접입력 값 저장
+			if(type=='manual'){
+				// 불러온내용 에디터에 적용
+				var id = $('.guide_viewer').attr('id');
+				var _bak = '';
+				if(oEditors.length > 0){
+					_bak = oEditors.getById[id].getContents();
+				}
+
+				$('[name=p_guide_'+ sv +']').val(_bak);
+			}
+
+			$('.js_chg_guide_type[data-idx='+idx+']:checked').trigger('change');
+		});
+
+		// 이용내역 본문에 삽입하기
+		function set_guide_info(idx){
+			if(!idx){ alert('잘못된 접근입니다. '); return false; }
+
+			var _val = $('select[name=p_guide_uid_'+ idx +']').val();
+			var _text = $('#guide_content_' + _val).val();
+			
+			if(!_val){ _text = ''; }
+
+			// 불러온내용 에디터에 적용
+			var id = $('.guide_viewer').attr('id');
+			if(oEditors.length > 0){
+				oEditors.getById[id].exec("SET_IR", [_text]);
+			}
+
+		}
+
+		// submit할때 마지막 변경내용 적용
+		$(document).ready(function(){
+			$('.guide_viewer').each(function(){
+				$(this).closest('form').on('submit', function(){
+					$('.tab_guide').find('li.hit').find('.tab_menu').trigger('click');
+				});
+			});
+		});
+
+	</script>
+
+</div>
+
+	<!-- ● 단락타이틀 -->
+	<div class="group_title"><strong>상품 이미지 등록</strong></div>
+
+
+	<!-- ● 폼 영역 (검색/폼 공통으로 사용) -->
+	<div class="data_form">
+		<table class="table_form">
+			<colgroup>
+				<col width="180"><col width="*">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>이미지등록 설정</th>
+					<td>
+						<label class="design"><input type="radio" name="_img_auto_resize_use"  checked  class="img_auto_resize_use" value="auto">자동등록</label>
+						<label class="design"><input type="radio" name="_img_auto_resize_use"  class="img_auto_resize_use" value="direct">직접등록</label>
+					</td>
+				</tr>
+				<tr class="auto_area">
+					<th>대표 이미지</th>
+					<td>
+						
+		<div class="input_file" style="width:300px">
+			<input type="text" class="fakeFileTxt" readonly="readonly" disabled="">
+			<div class="fileDiv">
+				<input type="button" class="buttonImg" value="파일찾기">
+				<input type="file" name="_img_main_tmp" class="realFile" onchange="$(this).closest('.input_file').find('.fakeFileTxt').val(this.value);">
+			</div>
+		</div>
+							<div class='c_tip '>권장사이즈 : 470 x 470 (pixel)</div>					</td>
+				</tr>
+				<tr>
+					<th>개별 이미지</th>
+					<td>
+						<!-- ● 데이터 리스트 -->
+						<table class="table_form direct_area">
+							<colgroup>
+								<col width="140"><col width="*">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>목록 이미지</th>
+									<td>
+										<input type="hidden" name="backup_img_org" value="">
+										<!-- SSJ : 2017-12-12 외부이미지 사용 추가 -->
+										<div class="input_file hyperLinkDiv" style="display:none;width:250px">
+											<div class="fileDiv">
+												<input type="text" name="_img_list_square" class="realFile hyperLink" value="" placeholder="http(s)://를 포함하여 입력해주세요." disabled>
+											</div>
+										</div>
+										
+		<div class="input_file" style="width:250px">
+			<input type="text" class="fakeFileTxt" readonly="readonly" disabled="">
+			<div class="fileDiv">
+				<input type="button" class="buttonImg" value="파일찾기">
+				<input type="file" name="_img_list_square" class="realFile" onchange="$(this).closest('.input_file').find('.fakeFileTxt').val(this.value);">
+			</div>
+		</div>
+											<label class="design">
+											<input type="checkbox" class="js_use_hyperlink" name="_use_hyperlink[]" value="_img_list_square">외부 이미지 사용
+										</label>
+																				<div class='c_tip '>권장사이즈 : 338 x 338 (pixel)</div>									</td>
+								</tr>
+																	<tr>
+										<th>상세 이미지 <font class="js_img_idx">1</font></th>
+										<td>
+											<!-- SSJ : 2017-12-12 외부이미지 사용 추가 -->
+											<div class="input_file hyperLinkDiv" style="display:none;width:250px">
+												<div class="fileDiv">
+													<input type="text" name="_img_b1" class="realFile hyperLink" value="" placeholder="http(s)://를 포함하여 입력해주세요." disabled>
+												</div>
+											</div>
+											
+		<div class="input_file" style="width:250px">
+			<input type="text" class="fakeFileTxt" readonly="readonly" disabled="">
+			<div class="fileDiv">
+				<input type="button" class="buttonImg" value="파일찾기">
+				<input type="file" name="_img_b1" class="realFile" onchange="$(this).closest('.input_file').find('.fakeFileTxt').val(this.value);">
+			</div>
+		</div>
+												<label class="design">
+												<input type="checkbox" class="js_use_hyperlink" name="_use_hyperlink[]" value="_img_b1">외부 이미지 사용
+											</label>
+											
+																						<a href="#none" class="c_btn h27 icon icon_plus_b js_addimg_btn">추가</a>
+																						<div class='c_tip '>권장사이즈 : 470 x 470 (pixel)</div>										</td>
+									</tr>
+															</tbody>
+						</table>
+						<div class="c_tip auto_area">자동등록 이용 시 개별 이미지는 대표 이미지를 사용하여 자동 리사이즈 됩니다. (썸네일, 리스트 이미지)</div>
+					</td>
+				</tr>
+							</tbody>
+		</table>
+	</div>
+
+
+
+
+	<!-- ● 단락타이틀 -->
+	<div class="group_title"><strong>다음, 네이버 EP연동</strong></div>
+
+
+
+	<!-- ● 폼 영역 (검색/폼 공통으로 사용) -->
+	<div class="data_form">
+		<table class="table_form">
+			<colgroup>
+				<col width="180"><col width="*">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>네이버 EP</th>
+					<td>
+						<label class='design'><input type=radio id='p_naver_switchY' name='p_naver_switch' value='Y'  >적용</label><label class='design'><input type=radio id='p_naver_switchN' name='p_naver_switch' value='N'  checked >미적용</label>						<div class="dash_line"><!-- 점선라인 --></div>
+						<div class="tip_box">
+							<div class='c_tip '>상품에 대한 <em>네이버 EP 노출여부를 설정</em>할 수 있습니다.</div>							<div class='c_tip '>네이버 EP 노출은 전체설정(환경설정 > 기본설정 > 쇼핑몰 기본정보 > 네이버 EP), 상품개별설정에서 모두 적용되어야 노출됩니다.</div>							<div class='c_tip '>전체상품 DB URL : <em>http://thy301.onedaynet.co.kr/addons/ep/naver/allep.php</em></div>							<div class='c_tip '>요약EP는 3.0 버전에서는 더이상 사용하지 않습니다.</div>						</div>
+					</td>
+				</tr>
+				<tr>
+					<th>다음 EP</th>
+					<td>
+						<label class='design'><input type=radio id='p_daum_switchY' name='p_daum_switch' value='Y'  >적용</label><label class='design'><input type=radio id='p_daum_switchN' name='p_daum_switch' value='N'  checked >미적용</label>						<div class="dash_line"><!-- 점선라인 --></div>
+						<div class="tip_box">
+							<div class='c_tip '>상품에 대한 <em>다음 하우쇼핑 노출여부를 설정</em>할 수 있습니다.</div>							<div class='c_tip '>다음 EP 노출은 전체설정(환경설정 > 기본설정 > 쇼핑몰 기본정보 > 다음 EP), 상품개별설정에서 모두 적용되어야 노출됩니다.</div>							<div class='c_tip '>전체상품 DB URL : <em>http://thy301.onedaynet.co.kr/addons/ep/daum/allep.php</em></div>							<div class='c_tip '>요약상품 DB URL : <em>http://thy301.onedaynet.co.kr/addons/ep/daum/briefep.php</em></div>						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	
+			<div class="c_btnbox">
+				<ul>
+					<li><span class="c_btn h46 red"><input type="submit" name="" value="확인" accesskey="s" /></span></li>
+					<li><a href="_product.list.php" class="c_btn h46 black line" accesskey="l">목록</a></li>
+				</ul>
+			</div>
+	
+			<!-- ● 스크롤 고정 등록버튼 (등록폼에서만 스크롤 내리면 고정됨/최하단 버튼 영역에 가면 사라짐) : 등록페이지 공통 -->
+			<div class="fixed_save js_fixed_save" style="display:none;">
+				<div class="wrapping">
+					<!-- 가운데정렬버튼 -->
+					<div class="c_btnbox">
+						<ul>
+							<li><span class="c_btn h34 red"><input type="submit" name="" value="확인" accesskey="s" /></span></li>
+							<li><a href="_product.list.php" class="c_btn h34 black line" accesskey="l">목록</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		
+</form>
+
+
+
+
+
+
+<script language="javascript">
+
+	// 상품복사
+	//$('#product_copy').on('click',function(e){
+	$(document).on('click', '#product_copy', function(e){
+		e.preventDefault();
+		var c = confirm('상품을 복사하시겠습니까?');
+		if(c){ location.href='_product.copy.php?pcode=P6736-J8065-L2702&_PVSC='; }
+	});
+
+	// 정산 형태 선택
+	var comm_type_check = function() {
+		if($('input[name=_commission_type]:checked').val() == '공급가') {
+			$('#comSaleTypeTr1').prop('disabled', false);
+			$('#comSaleTypeTr2').prop('disabled', true);
+		} else {
+			$('#comSaleTypeTr1').prop('disabled', true);
+			$('#comSaleTypeTr2').prop('disabled', false);
+		}
+	}
+	$(document).on('click', 'input[name=_commission_type]', comm_type_check);
+	$(document).ready(comm_type_check);
+
+
+	// 배송정보 설정
+	var delivery_setting = function() {
+		if($('._shoppingPay_use:checked').val() == 'Y') {
+			$('#_shoppingPay_use_Y').removeAttr('disabled');
+		} else {
+			$('#_shoppingPay_use_Y').attr('disabled','disabled');
+		}
+		// ----- JJC : 상품별 배송비 : 2018-08-16 -----
+		if($('._shoppingPay_use:checked').val() == 'P') {
+			$("input[name='_shoppingPayPdPrice']").removeAttr('disabled');
+			$("input[name='_shoppingPayPfPrice']").removeAttr('disabled');
+			$(".shoppingPayP").show();
+		} else {
+			$("input[name='_shoppingPayPdPrice']").attr('disabled','disabled');
+			$("input[name='_shoppingPayPfPrice']").attr('disabled','disabled');
+			$(".shoppingPayP").hide();
+		}
+		// ----- JJC : 상품별 배송비 : 2018-08-16 -----
+	}
+	$(document).on('click', '._shoppingPay_use', delivery_setting);
+	$(document).ready(delivery_setting);
+
+
+	// 쇼핑몰/입점업체 배송비 확인하기
+	function entershop_view() {
+		var cpid = $('select[name=_cpid]').val();
+		if(!cpid) {
+			alert('입점업체를 먼저 선택하세요');
+		} else {
+			window.open('_config.delivery.form.php?menu_idx=5');		}
+	}
+
+	// 텝메뉴
+	$(document).on('click', '.tab_menu', function() {
+		$parent = $(this).closest('.data_form');
+		var idx = $(this).data('idx');
+		// 탭변경
+		$parent.find('.tab_menu').closest('li').removeClass('hit');
+		$parent.find('.tab_menu[data-idx='+ idx +']').closest('li').addClass('hit');
+		// 입력항목변경
+		$parent.find('.tab_conts').hide();
+		$parent.find('.tab_conts[data-idx='+ idx +']').show();
+
+		// 부모창이 display:none; 일때 높이 오류 수정
+		var trigger_cont_editor = $(this).data('trigger')=='Y' ? true : false;
+		if(trigger_cont_editor){
+			$('.tab_conts[data-idx='+ idx +'] .SEditor').each(function(){
+				var id = $(this).attr('id');
+				if(oEditors.length > 0){
+					oEditors.getById[id].exec('RESIZE_EDITING_AREA_BY',[true]);
+				}
+			});
+			$(this).data('trigger','N');
+		}
+	});
+
+
+	// 옵션설정에 따른 노출
+	function onoff_option() {
+		// 옵션사용하지 않을 경우 옵션유형 모두 닫기
+		if($('._option_type_chk:checked').val() == 'nooption') {
+			$(".option_type").hide();
+		}
+		else {
+			$(".option_type").show(); // 옵션유형 div 열기
+			$(".init_depth_type").hide(); // 옵션유형 항목 일단 모두 닫기
+			if($('._option_type_chk:checked').val() == '1depth') {
+				$(".init_depth1_type").show(); // 1차만 열기
+			}
+			else if($('._option_type_chk:checked').val() == '2depth') {
+				$(".init_depth1_type").show(); $(".init_depth2_type").show(); // 1차,2차 열기
+			}
+			else if($('._option_type_chk:checked').val() == '3depth') {
+				$(".init_depth_type").show(); // 모두 열기
+			}
+		}
+	}
+	$(document).ready(onoff_option);
+	$(document).on('click', '._option_type_chk', onoff_option);
+
+
+	// 이미지 자동등록/직접등록
+	function onoff() {
+		if($('.img_auto_resize_use:checked').val() == 'auto') {
+			$('.auto_area').show();
+			$('.direct_area').hide();
+		} else {
+			$('.auto_area').hide();
+			$('.direct_area').show();
+		}
+	}
+	$(document).ready(onoff);
+	$(document).on('click', '.img_auto_resize_use', onoff);
+
+
+	// 상세이미지 등록폼 추가 버튼
+	$(document).on('click', '.js_addimg_btn', function(){
+		if($('.js_img_idx').length>=5){
+			alert('상세 이미지는 최대 5개까지만 등록가능합니다.');
+			return false;
+		}
+		var html = '';
+			html += '<tr>';
+			html += '	<th>상세 이미지 <font class="js_img_idx">0</font></th>';
+			html += '	<td>';
+			html += '		<div class="input_file hyperLinkDiv" style="display:none;width:250px"><div class="fileDiv">';
+			html += '			<input type="text" name="" class="realFile hyperLink" value="" placeholder="http(s)://를 포함하여 입력해주세요." disabled>';
+			html += '		</div></div>';
+			html += '				<div class=\"input_file\" style=\"width:250px\">			<input type=\"text\" class=\"fakeFileTxt\" readonly=\"readonly\" disabled=\"\">			<div class=\"fileDiv\">				<input type=\"button\" class=\"buttonImg\" value=\"파일찾기\">				<input type=\"file\" name=\"\" class=\"realFile\" onchange=\"$(this).closest(\'.input_file\').find(\'.fakeFileTxt\').val(this.value);\">			</div>		</div>	';
+			html += '		<a href="#none" class="c_btn h27 icon icon_minus_b js_delimg_btn">삭제</a>';
+			html += '		<label class="design"><input type="checkbox" class="js_use_hyperlink" name="_use_hyperlink[]" value="">외부 이미지 사용</label>';
+			html += '		<div class=\'c_tip \'>권장사이즈 : 470 x 470 (pixel)</div>';
+			html += '	</td>';
+			html += '</tr>';
+
+		$(this).closest('tbody').append(html);
+
+		rename_img();
+
+	});
+	// 상세이미지 등록폼 삭제 버튼
+	$(document).on('click', '.js_delimg_btn', function(){
+		$(this).closest('tr').remove();
+
+		rename_img();
+
+	});
+	//
+	function rename_img(){
+		var _img_idx = 0;
+		$('.js_img_idx').each(function(){
+			_img_idx++;
+			// 항목명 변경
+			$(this).text(_img_idx);
+			// input[name]변경 -- realFile
+			$(this).closest('tr').find('input[type=file].realFile').attr('name','_img_b'+_img_idx);
+			// input[name]변경 -- oldFile
+			$(this).closest('tr').find('input[type=hidden].oldFile').attr('name','_img_b'+_img_idx+'_OLD');
+			// input[name]변경 -- js_del
+			$(this).closest('tr').find('input[type=hidden].js_del').attr('name','_img_b'+_img_idx+'_DEL');
+			// value변경 -- js_use_hyperlink
+			$(this).closest('tr').find('input[type=checkbox].js_use_hyperlink').val('_img_b' + _img_idx);
+			// input[name]변경 -- hyperLink
+			$(this).closest('tr').find('input[type=text].hyperLink').attr('name','_img_b'+_img_idx);
+		});
+	}
+
+
+	// 옵션창 열기
+	function option_popup(pass_code) {
+		pass_mode = $('._option_type_chk').filter(function() {if (this.checked) return this;}).val();
+		if(pass_mode == 'nooption' || pass_mode == undefined) {
+			alert('1차~3차 옵션을 선택하세요');
+			return false;
+		}
+		window.open('_product_option.form.php?pass_mode='+pass_mode+'&pass_code=' + pass_code ,'option','width=1120,height=638,scrollbars=yes');
+	}
+
+	// -- 자주쓰는 옵션 열기
+	function common_option_popup(pass_code)
+	{
+		pass_mode = $('._option_type_chk').filter(function() {if (this.checked) return this;}).val();
+		if(pass_mode == 'nooption' || pass_mode == undefined) {
+			alert('1차~3차 옵션을 선택하세요');
+			return false;
+		}
+		window.open('_product_common_option.pop.php?pass_mode='+pass_mode+'&pass_code=' + pass_code ,'option','width=1120,height=638,scrollbars=yes');
+	}
+
+	// 추가옵션창 열기
+	function addoption_popup(code) {
+		pass_mode = $('._option_type_chk').filter(function() {if (this.checked) return this;}).val();
+		if(pass_mode == 'nooption' || pass_mode == undefined) {
+			alert('1차~3차 옵션을 선택하세요');
+			return false;
+		}
+		window.open('_product_addoption.popup.php?pass_code=' + code,'addoption','width=1120,height=638,scrollbars=yes');
+	}
+
+	// 정보제공고시창 열기
+	function reqinfo_popup() {
+		window.open('_product_reqinfo.popup.php?pass_code=P6736-J8065-L2702','reqinfo','width=1120,height=600,scrollbars=yes');
+	}
+
+	// 외부 이미지 사용 체크 이벤트
+	$(document).on('click', '.js_use_hyperlink', function(){
+		$parent = $(this).closest('td');
+		var trigger = $(this).is(':checked');
+		if(trigger){
+			$parent.find('.input_file:not(.hyperLinkDiv)').hide().find('input').attr({'disabled':'disabled'});
+			$parent.find('.input_file.hyperLinkDiv').show().find('input').removeAttr('disabled');
+		}else{
+			$parent.find('.input_file:not(.hyperLinkDiv)').show().find('input').removeAttr('disabled');
+			$parent.find('.input_file.hyperLinkDiv').hide().find('input').attr({'disabled':'disabled'});
+		}
+	});
+
+
+	// 폼 유효성 검사
+	$(document).ready(function(){
+		$("form[name=frm]").validate({
+				ignore: ".ignore",
+				rules: {
+						_code: { required: true }
+						,_cpid: { required: true }
+						,_name: { required: true }
+						,_price: { required: true , min: { param: 1, depends: function(element) { return ($('input[name=_price]').val().replace(/,/g,'')*1 == 0 ? 1 : 0); } } }
+						,_content: { required: true }
+						,_content_m: { required: function(){ return ($('input[name=_use_content]').is(':checked') ? false : true);} }
+				},
+				invalidHandler: function(event, validator) {
+					// 입력값이 잘못된 상태에서 submit 할때 자체처리하기전 사용자에게 핸들을 넘겨준다.
+
+				},
+				messages: {
+						_code : { required: '상품코드를 입력해주시기 바랍니다.' }
+						,_cpid : { required: '입점업체를 선택 해주시기 바랍니다.' }
+						,_name : { required: '대표상품명을 입력해주시기 바랍니다.' }
+						,_price : { required: '판매가를 입력해주시기 바랍니다.' , min: '판매가를 입력해주시기 바랍니다.'}
+						,_content : { required: '상품상세설명(PC)을 입력해주시기 바랍니다.' }
+						,_content_m : { required: '상품상세설명(MOBILE)을 입력해주시기 바랍니다.' }
+				},
+				submitHandler : function(form) {
+					// 폼이 submit 될때 마지막으로 뭔가 할 수 있도록 핸들을 넘겨준다.
+
+					// LCY - 상품쿠폰 금액체크... 상품금액보다 커서는 안된다.
+					var _coupon_price = $('input[name="_coupon_price"]').val().replace(/,/g,'')*1;
+					var _price = $('input[name="_price"]').val().replace(/,/g,'')*1;
+					if( _coupon_price >= _price){ alert("상품쿠폰 금액을 확인해 주세요.(상품금액보다 작은 금액을 입력해주세요.)"); return false; }
+					form.submit();
+				}
+
+		});
+	});
+
+</script>
+
+	</div>
+</div>
+<!-- /●●●컨텐츠영역 -->
+
+
+<!-- ●●●푸터(공통) -->
+<div class="footer">
+	<span class="copyright">© ONEDAYNET.CO.KR. ALL RIGHTS RESERVED.</span>
+</div>
+<!-- /●●●푸터(공통) -->
+		<div class="js_dialog" style="display: none"><!-- 다이얼로그 기본폼:: 삭제금지 --></div>
+		<div class="js_preview_image_popup" style="display: none;"><!-- 라이트박스미 기본폼:: 삭제금지 -->
+			<div class="popup" style="max-width:1100px; background-color:#fff;">
+				<div class="pop_title"><strong>이미지 미리보기</strong></div>
+				<div class="data_list"></div>
+				<div class="c_btnbox">
+					<ul>
+						<li><a href="#none" class="c_btn h34 black line normal close">닫기</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</div><!-- /wrap -->
+
+	<!-- 공통 frame -->
+	<iframe name="common_frame" width="0" height="0" frameborder="0" style="display:none;"></iframe>
+	<script src="/include/js/jquery.validate.setDefault.js" type="text/javascript"></script>
+	<script src="//thy301.onedaynet.co.kr/totalAdmin/js/common.footer.js"></script>
+	</body>
+</html>
